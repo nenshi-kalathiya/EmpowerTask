@@ -15,7 +15,8 @@ import java.util.Date
 import java.util.Locale
 
 //Created bottom sheet to show Beneficiary in Details
-class BeneficiaryBottomSheet(private val beneficiary: Beneficiary) : BottomSheetDialogFragment() {
+class BeneficiaryDetailsBottomSheet(private val beneficiary: Beneficiary) :
+    BottomSheetDialogFragment() {
     //binding view
     private val binding: BeneficiaryBottomsheetFragmentBinding by lazy {
         BeneficiaryBottomsheetFragmentBinding.inflate(layoutInflater)
@@ -25,7 +26,11 @@ class BeneficiaryBottomSheet(private val beneficiary: Beneficiary) : BottomSheet
         return R.style.RoundedBottomSheetDialogTheme
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         setData()
         return binding.root
     }
@@ -42,14 +47,16 @@ class BeneficiaryBottomSheet(private val beneficiary: Beneficiary) : BottomSheet
         binding.tvDOBValue.text = Constants().convertDate(beneficiary.dateOfBirth)
         binding.tvPhoneValue.text = beneficiary.phoneNumber
         beneficiary.beneficiaryAddress?.apply {
+            binding.tvAddressValue.text = "$firstLineMailing,\n$city,\n$stateCode-$zipCode,\n$country"
+            /* other way to concat strings
             binding.tvAddressValue.text = firstLineMailing?.plus(",\n")
-                .plus(city)
-                .plus(",\n")
-                .plus(stateCode)
-                .plus("-")
-                .plus(zipCode)
-                .plus(",\n")
-                .plus(country)
+                            .plus(city)
+                            .plus(",\n")
+                            .plus(stateCode)
+                            .plus("-")
+                            .plus(zipCode)
+                            .plus(",\n")
+                            .plus(country)*/
         }
     }
 }

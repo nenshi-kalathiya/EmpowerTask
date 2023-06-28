@@ -75,7 +75,7 @@ object BeneficiaryRepository {
         return Gson().fromJson(json, typeToken)
     }
 
-    //retrieve Beneficiary by SSN number
+    //retrieve Beneficiary Item by SSN number
     fun getBeneficiaryDetails(socialSecurityNumber: String): Beneficiary? {
         return beneficiaries.find { it.socialSecurityNumber == socialSecurityNumber }
     }

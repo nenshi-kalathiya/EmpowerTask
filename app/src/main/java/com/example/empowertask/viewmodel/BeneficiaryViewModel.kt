@@ -17,7 +17,7 @@ class BeneficiaryViewModel(private val context: Context) : ViewModel() {
         _beneficiaries.value = beneficiaries
     }
 
-    //retrieve data from SSN
+    //retrieve Beneficiary Item by SSN number
     fun getBeneficiaryDetails(ssn: String): Beneficiary? {
         return BeneficiaryRepository.getBeneficiaryDetails(ssn)
     }

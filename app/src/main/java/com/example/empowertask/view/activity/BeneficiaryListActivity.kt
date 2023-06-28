@@ -2,9 +2,7 @@ package com.example.empowertask.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.empowertask.Constants.Companion.BENEFICIARY_BOTTOM_SHEET_DIALOG
@@ -13,7 +11,6 @@ import com.example.empowertask.databinding.ActivityListBeneficiaryBinding
 import com.example.empowertask.model.Beneficiary
 import com.example.empowertask.view.adapter.BeneficiaryListAdapter
 import com.example.empowertask.viewmodel.BeneficiaryViewModel
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.shape.MaterialShapeDrawable
 
@@ -44,7 +41,7 @@ class BeneficiaryListActivity : AppCompatActivity() {
 
     //call bottomsheet while click on Single Item for list
     private fun showBeneficiaryDetails(beneficiary: Beneficiary) {
-        BeneficiaryBottomSheet(beneficiary).show(
+        BeneficiaryDetailsBottomSheet(beneficiary).show(
             this.supportFragmentManager,
             BENEFICIARY_BOTTOM_SHEET_DIALOG
         )

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">EmpowerTask</string>
+    <string name="full_name">Nenshi Kalathiya</string>
+    <string name="bene_type">Spouse</string>
+    <string name="designation">Primary</string>
+    <string name="space">  </string>
 </resources>

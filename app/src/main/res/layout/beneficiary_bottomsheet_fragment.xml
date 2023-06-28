@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/viewbg"
+            android:layout_width="@dimen/app_dimen_25dp"
+            android:layout_height="@dimen/app_dimen_5dp"
+            android:background="@color/background_gray"
+            android:layout_marginTop="@dimen/app_dimen_10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="@dimen/app_dimen_70dp"
+            android:layout_height="@dimen/app_dimen_70dp"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/app_dimen_20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewbg"
+            android:src="@drawable/ic_details"/>
+
+        <com.example.empowertask.common.TitleTextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_dimen_20dp"
+            android:layout_marginLeft="@dimen/app_dimen_10dp"
+            android:gravity="center"
+            android:textSize="@dimen/app_dimen_25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivProfile"
+            tools:text="@string/full_name" />
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_dimen_1dp"
+            android:background="@color/background_gray"
+            android:layout_marginStart="@dimen/app_dimen_10dp"
+            android:layout_marginEnd="@dimen/app_dimen_10dp"
+            android:layout_marginBottom="@dimen/app_dimen_10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_dimen_10dp"
+                android:padding="@dimen/app_dimen_10dp">
+
+                <TextView
+                    android:id="@+id/tvDesignation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/designation"
+                    android:textColor="@color/feild_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/designation" />
+
+                <TextView
+                    android:id="@+id/tvDesignationValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dec_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Primary" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/app_dimen_10dp">
+
+                <TextView
+                    android:id="@+id/tvBeneType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bene_type"
+                    android:textColor="@color/feild_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/bene_type" />
+
+                <TextView
+                    android:id="@+id/tvBeneTypeValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dec_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Spouse" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/app_dimen_10dp">
+
+                <TextView
+                    android:id="@+id/tvSSN"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/social_security_number"
+                    android:textColor="@color/feild_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/social_security_number" />
+
+                <TextView
+                    android:id="@+id/tvSSNValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dec_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="XXXXX3333" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/app_dimen_10dp">
+
+                <TextView
+                    android:id="@+id/tvDOB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date_of_birth"
+                    android:textColor="@color/feild_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/date_of_birth" />
+
+                <TextView
+                    android:id="@+id/tvDOBValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dec_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/bene_type" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/app_dimen_10dp">
+
+                <TextView
+                    android:id="@+id/tvPhoneNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_number"
+                    android:textColor="@color/feild_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/phone_number" />
+
+                <TextView
+                    android:id="@+id/tvPhoneValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dec_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text = "123 123(1236)"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/app_dimen_50dp"
+                android:padding="@dimen/app_dimen_10dp">
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    android:textColor="@color/feild_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/address" />
+
+                <TextView
+                    android:id="@+id/tvAddressValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/app_dimen_5dp"
+                    android:textColor="@color/dec_gray"
+                    android:textSize="@dimen/app_dimen_15dp"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="8515 E Orchard Rd,\nGreenwood Village,\nCO-80111,\nUSA"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

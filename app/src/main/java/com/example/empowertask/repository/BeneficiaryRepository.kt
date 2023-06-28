@@ -3,6 +3,8 @@ package com.example.empowertask.repository
 import android.content.Context
 import com.example.empowertask.model.Beneficiary
 import com.example.empowertask.model.BeneficiaryAddress
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
@@ -10,7 +12,8 @@ import java.io.IOException
 object BeneficiaryRepository {
     private var beneficiaries: List<Beneficiary> = emptyList()
 
-    fun getBeneficiaries(context: Context): List<Beneficiary> {
+   /* without use of any third party library convert json data into model
+   fun getBeneficiaries(context: Context): List<Beneficiary> {
         if (beneficiaries.isEmpty()) {
             val json = readJsonFromAssets(context, "Beneficiaries.json")
             beneficiaries = parseBeneficiaries(json)
@@ -63,12 +66,21 @@ object BeneficiaryRepository {
         }
 
         return beneficiaries
+    }*/
+
+    //using Gson Library to parse data into model
+    fun getBeneficiaries(context: Context): List<Beneficiary> {
+        val json = readJsonFromAssets(context = context,"Beneficiaries.json")
+        val typeToken = object : TypeToken<List<Beneficiary>>() {}.type
+        return Gson().fromJson(json, typeToken)
     }
 
+    //retrieve Beneficiary by SSN number
     fun getBeneficiaryDetails(socialSecurityNumber: String): Beneficiary? {
         return beneficiaries.find { it.socialSecurityNumber == socialSecurityNumber }
     }
 
+    //read .json file from assets folder
     fun readJsonFromAssets(context: Context, fileName: String): String {
         val jsonString: String
         try {
@@ -84,5 +96,4 @@ object BeneficiaryRepository {
         }
         return jsonString
     }
-
 }

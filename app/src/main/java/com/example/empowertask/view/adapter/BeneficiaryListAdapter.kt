@@ -1,17 +1,19 @@
 package com.example.empowertask.view.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.empowertask.Constants
 import com.example.empowertask.databinding.ItemBeneficiarryBinding
 import com.example.empowertask.model.Beneficiary
 
-
-class BeneficiaryListAdapter() : RecyclerView.Adapter<BeneficiaryListAdapter.ViewHolder>() {
+class BeneficiaryListAdapter( private val onItemClick: (Beneficiary) -> Unit) : RecyclerView.Adapter<BeneficiaryListAdapter.ViewHolder>() {
     private var beneficiaries: List<Beneficiary> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ItemBeneficiarryBinding.inflate(LayoutInflater.from(parent.context)))
+        val binding = ItemBeneficiarryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -21,18 +23,18 @@ class BeneficiaryListAdapter() : RecyclerView.Adapter<BeneficiaryListAdapter.Vie
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         beneficiaries?.get(position)?.let { beneficiaryItem ->
             holder.bindData(beneficiaryItem)
+            holder.itemView.setOnClickListener { onItemClick(beneficiaryItem) }
         }
     }
 
-    class ViewHolder(private val binding: ItemBeneficiarryBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ItemBeneficiarryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindData(data: Beneficiary) {
-            if(data.designationCode.equals(Constants.DESIGNATION_CODE_FOR_PRIMARY)) {
-                binding.tvDesignation.text = Constants.DESIGNATION_PRIMARY
-            } else {
-                binding.tvDesignation.text = Constants.DESIGNATION_CONTINGENT
+            //data binding directly with UI for name and benetype
+            binding.beneficiary = data
+            binding.tvDesignation.text =   when(data.designationCode){
+                Constants.DESIGNATION_CODE_FOR_PRIMARY ->  Constants.DESIGNATION.plus(Constants.DESIGNATION_PRIMARY)
+                else ->  Constants.DESIGNATION.plus(Constants.DESIGNATION_CONTINGENT)
             }
-
         }
     }
 
@@ -40,5 +42,4 @@ class BeneficiaryListAdapter() : RecyclerView.Adapter<BeneficiaryListAdapter.Vie
         this.beneficiaries = beneficiaries
         notifyDataSetChanged()
     }
-
 }

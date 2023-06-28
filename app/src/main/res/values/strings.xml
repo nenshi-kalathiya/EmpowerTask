@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">EmpowerTask</string>
+    <string name="beneficiaries">Beneficiaries </string>
     <string name="full_name">Nenshi Kalathiya</string>
-    <string name="bene_type">Spouse</string>
-    <string name="designation">Primary</string>
-    <string name="space">  </string>
+    <string name="designation">Designation</string>
+    <string name="bene_type">BeneType</string>
+    <string name="social_security_number">Social Security Number</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="phone_number">PhoneNumber</string>
+    <string name="address">Address</string>
 </resources>
